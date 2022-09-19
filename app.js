@@ -9,7 +9,7 @@ let savedFirstValue = 0
 let tempOperatorArray = [];
 let calcDisplay = document.querySelector('#display')
 
-// let decimalBtn = document.querySelector('.decimal')
+let decimalBtn = document.querySelector('.decimal')
 // const operandButtons = document.querySelectorAll('.operand')
 
 
@@ -148,29 +148,30 @@ function runCalculation() {
             
         })
     }
-    // function addDecimal(){
-    //     const decimalBtn = document.querySelector('.decimal')
-    //     decimalBtn.addEventListener('click', () => {
-    //         decimalBtnValue = decimalBtn.getAttribute('value') 
+    function addDecimal(){
+        let decimalBtnValue = decimalBtn.getAttribute('value')
+        decimalBtn.addEventListener('click', () => {
+             
 
-    //         if (data.operator == ''){
-    //             tempNum1Arry.push(savedFirstValue)
-    //             console.log("tempNum1Arrat", tempNum1Arry)
-    //             console.log("num1", data.num1)
-    //             data.num1 = parseFloat(tempNum1Arry.join(""));
-    //             console.log("updated num1", data.num1)
-    //             calcDisplay.textContent = data.num1
-    //         } else {
-    //             tempNum2Arry.push(savedFirstValue)
-    //             console.log("tempNum2Array", tempNum2Arry)
-    //             console.log("num2", data.num2)
-    //             data.num2 = parseFloat(tempNum2Arry.join(""));
-    //             console.log("updated num2", data.num2)
-    //             calcDisplay.textContent = data.num2
-    //         }
-    //     })
-    // }
+            if (data.operator == ''){
+                tempNum1Arry.push(decimalBtnValue)
+                console.log("temNum1Array", tempNum1Arry)
+                console.log("num1", data.num1)
+                data.num1 = parseFloat(tempNum1Arry.join(""))
+                console.log("updated num1", data.num1)
+                calcDisplay.textContent = data.num1
+            } else {
+                tempNum2Arry.push(decimalBtnValue)
+                console.log("tempNum2Array", tempNum2Arry)
+                console.log("num2", data.num2)
+                data.num2 = parseFloat(tempNum2Arry.join(""));
+                console.log("updated num2", data.num2)
+                calcDisplay.textContent = data.num2
+            }
+        })
+    }
 
+    addDecimal()
     getNumberClicked()
     getOperatorSelection()
     runCalculation()
